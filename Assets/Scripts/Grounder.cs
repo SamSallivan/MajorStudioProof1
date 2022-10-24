@@ -41,6 +41,8 @@ public class Grounder : MonoBehaviour
 
 	public Vector3 groundNormal;
 
+    public Vector3 lastGroundNormal;
+
 
     void Awake()
     {
@@ -153,12 +155,6 @@ public class Grounder : MonoBehaviour
 			{
 				Ground();
             }
-
-           /* Vector3 normalized = Vector3.ProjectOnPlane(rb.velocity, hit.normal).normalized;
-            if (!rb.isKinematic && rb.velocity.y > normalized.y)
-            {
-                rb.velocity = normalized * rb.velocity.magnitude;
-            }*/
         }
 		else
 		{	
@@ -178,7 +174,7 @@ public class Grounder : MonoBehaviour
 				Vector3 normalized = Vector3.ProjectOnPlane(rb.velocity, hit.normal).normalized;
 				if (!rb.isKinematic && rb.velocity.y > normalized.y)
 				{
-					rb.velocity = normalized * rb.velocity.magnitude;
+					//rb.velocity = normalized * rb.velocity.magnitude;
 				}
 
 			}
@@ -191,8 +187,9 @@ public class Grounder : MonoBehaviour
 
                     pc.gTimer = 0.2f;
 
-				}
-				tempGroundNormal = Vector3.up;
+                }
+                lastGroundNormal = groundNormal;
+                tempGroundNormal = Vector3.up;
                 groundNormal = tempGroundNormal;
             }
 
@@ -221,7 +218,7 @@ public class Grounder : MonoBehaviour
 		if (groundContactCount > 0 && timeSinceUngrounded > 1)
 		{
 			var angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
-            Debug.Log(angle);
+            //Debug.Log(angle);
 			if (Mathf.Abs(angle) <= 30)
 			{
 				pc.rating.text = "Perfect";
