@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45932424, g: 0.5107411, b: 0.5859649, a: 1}
+  m_IndirectSpecularColor: {r: 0.45932406, g: 0.5107405, b: 0.5859643, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -811,8 +811,8 @@ GameObject:
   m_Component:
   - component: {fileID: 61935813}
   - component: {fileID: 61935815}
-  - component: {fileID: 61935814}
   - component: {fileID: 61935816}
+  - component: {fileID: 61935817}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -835,14 +835,6 @@ Transform:
   m_Father: {fileID: 991170361}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &61935814
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 61935812}
-  m_Enabled: 0
 --- !u!20 &61935815
 Camera:
   m_ObjectHideFlags: 0
@@ -946,6 +938,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &61935817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61935812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!4 &78469452 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4237247970697992, guid: ba1ddd059de115f44b44ff52413832aa, type: 3}
@@ -7811,9 +7816,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1152916058}
   - component: {fileID: 1152916060}
-  - component: {fileID: 1152916059}
   - component: {fileID: 1152916062}
   - component: {fileID: 1152916063}
+  - component: {fileID: 1152916064}
   m_Layer: 9
   m_Name: Camera
   m_TagString: Untagged
@@ -7838,14 +7843,6 @@ Transform:
   m_Father: {fileID: 162371629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1152916059
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1152916057}
-  m_Enabled: 1
 --- !u!20 &1152916060
 Camera:
   m_ObjectHideFlags: 0
@@ -8038,6 +8035,19 @@ MonoBehaviour:
   m_BeforeTransparentBundles: []
   m_BeforeStackBundles: []
   m_AfterStackBundles: []
+--- !u!114 &1152916064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152916057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &1158328067
 GameObject:
   m_ObjectHideFlags: 0
