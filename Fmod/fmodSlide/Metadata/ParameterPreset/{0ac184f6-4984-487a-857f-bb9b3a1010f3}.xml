@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{0ac184f6-4984-487a-857f-bb9b3a1010f3}">
+		<property name="name">
+			<value>SlideRotation</value>
+		</property>
+		<relationship name="folder">
+			<destination>{68ddaded-809e-4f27-8f96-6317392e4bb6}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{7d7f6390-c043-47be-90bc-d5a7385ff050}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{7d7f6390-c043-47be-90bc-d5a7385ff050}">
+		<property name="minimum">
+			<value>-90</value>
+		</property>
+		<property name="maximum">
+			<value>90</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
