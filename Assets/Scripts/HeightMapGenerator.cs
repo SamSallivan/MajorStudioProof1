@@ -115,8 +115,8 @@ public class HeightMapGenerator : MonoBehaviour {
 
                 //map[y * mapSize.y + x] = fractal_noise(new Vector2(x / (float)mapSize.y, y / (float)mapSize.y) * initialScale);
 
-                map[y * mapSize.y + x] = voronoiNoise(new Vector2(x / (float)mapSize.y, y / (float)mapSize.y) * initialScale);
-                map[y * mapSize.y + x] = Mathf.Pow(map[y * mapSize.y + x], pow);
+                //map[y * mapSize.y + x] = voronoiNoise(new Vector2(x / (float)mapSize.y, y / (float)mapSize.y) * initialScale);
+                //map[y * mapSize.y + x] = Mathf.Pow(map[y * mapSize.y + x], pow);
             }
         }
 

@@ -219,19 +219,28 @@ public class Grounder : MonoBehaviour
 		{
 			var angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
             //Debug.Log(angle);
-			if (Mathf.Abs(angle) <= 30)
+			if (Mathf.Abs(angle) <= 15)
 			{
 				pc.rating.text = "Perfect";
-            }
-            else if (Mathf.Abs(angle) <= 60)
-            {
-                pc.rating.text = "Good";
-            }
-            else
+				//pc.energy += 60 - Mathf.Abs(angle);
+
+			}
+			else if (Mathf.Abs(angle) <= 30)
+			{
+				pc.rating.text = "Great";
+				pc.energy += 60 - Mathf.Abs(angle);
+			}
+			else if (Mathf.Abs(angle) <= 40)
+			{
+				pc.rating.text = "Good";
+				pc.energy += 60 - Mathf.Abs(angle);
+			}
+			else
             {
                 pc.rating.text = "Nope";
             }
-            //Debug.Log(tempGroundNormal);
+			//Debug.Log(tempGroundNormal);
+			pc.flipRotaion = 0;
         }
 
     }

@@ -96,6 +96,10 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
     public Vignette vg;
 
 	public TMP_Text rating;
+	public TMP_Text energyBar;
+
+	public float energy;
+	public float flipRotaion;
 
 	private void Awake()
 	{
@@ -453,6 +457,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			cg.mixerGreenOutRedIn.value = Mathf.Lerp(0, -100, damageTimer/3);
 			vg.intensity.value = Mathf.Lerp(0, 0.3f, damageTimer/3);
 		}
+
+		energyBar.text = "Energy: " + energy;
 	}
 
 	private void FixedUpdate()
@@ -469,7 +475,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 
         Vector3 horizontalDif = tHead.InverseTransformDirection(- rb.velocity);
-		Debug.Log(horizontalDif.x);
+		Debug.Log(horizontalDif.z);
 
 
         if (slide.slideState == 0)
@@ -544,12 +550,12 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		//rb.AddForce(grounder.groundNormal * gravity * (grounder.timeSinceUngrounded));
 		if (grounder.timeSinceUngrounded <= 0.25f && !grounder.grounded)
         {
-            //rb.AddForce(Vector3.up * gravityCurve.Evaluate(grounder.timeSinceUngrounded) * (1 - Mathf.Abs(grounder.lastGroundNormal.z)) / 1 * (200 - Mathf.Abs(horizontalDif.x)) / 200);
+            rb.AddForce(Vector3.up * gravityCurve.Evaluate(grounder.timeSinceUngrounded) * (1 - Mathf.Abs(grounder.lastGroundNormal.z)) / 1 * (200 - Mathf.Abs(horizontalDif.x)) / 200);
             rb.AddForce(rb.velocity.normalized * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); 
         }
 		else
         {
-            rb.AddForce(grounder.groundNormal * -200);
+            rb.AddForce(grounder.groundNormal * -150);
         }
 
         if (extraUpForce)
@@ -557,6 +563,12 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			rb.AddForce(Vector3.up * 12f);
 			extraUpForce = false;
 		}
+
+        if (!grounder.grounded)
+        {
+			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, 90,transform.rotation.z), Time.deltaTime*2f);
+        }
+
 
         Vector3 axis = Vector3.Cross(Vector3.up, rb.velocity.normalized);
         Vector3 velocityNormal = Vector3.Cross(rb.velocity.normalized, axis);
@@ -581,6 +593,13 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
         if (Mathf.Abs(v) > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
 		{
 			head.Rotate(v * 5,0,0);
+			flipRotaion += v * 5;
+
+			if (Mathf.Abs(flipRotaion) /270 >= 1)
+            {
+				rating.text = "FLIP!! * " + Mathf.Floor(Mathf.Abs(flipRotaion) / 270);
+
+			}
         }
 		else
 		{
