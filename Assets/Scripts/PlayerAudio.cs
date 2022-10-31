@@ -58,4 +58,13 @@ public class PlayerAudio : MonoBehaviour
             //test.Play();
         }
     }
+
+    public void playHit()
+    {
+        playerState = FMODUnity.RuntimeManager.CreateInstance("event:/GroundHit");
+
+        playerState.setParameterByID(fullHealthParameterId, Hitvalue);
+        playerState.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        playerState.start();
+    }
 }
