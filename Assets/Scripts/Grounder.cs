@@ -124,6 +124,7 @@ public class Grounder : MonoBehaviour
 		jumpHeight = highestPoint - transform.position.y;
 
 		}
+
     }
 
 	private void FixedUpdate()
@@ -257,6 +258,7 @@ public class Grounder : MonoBehaviour
 			{
 				pc.energy = 100;
             }
+
         }
 
     }

@@ -114,7 +114,9 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 	public PlayerAudio audioSettings;
 
-    private void Awake()
+	public GameObject terrain;
+
+	private void Awake()
 	{
         Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -475,7 +477,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		}
 
 		audioSettings.Rvalue = transform.rotation.z * 90f*1.5f;
-		Debug.Log(targetFrontalSpeed);
+		//Debug.Log(targetFrontalSpeed);
 		if (grounder.grounded)
 		{
             if (audioSettings.Hvalue < targetFrontalSpeed / 200)
@@ -509,7 +511,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 
         Vector3 horizontalDif = tHead.InverseTransformDirection(- rb.velocity);
-		//Debug.Log(horizontalDif.z);
+		//Debug.Log(horizontalDif.y);
 
         if (slide.slideState == 0)
 		{
@@ -625,7 +627,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		//rb.AddForce(grounder.groundNormal * gravity * (grounder.timeSinceUngrounded));
 		if (grounder.timeSinceUngrounded < 0.25f || grounder.timeSinceUngrounded > 0.5f)
         {
-            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(400, 100, (targetFrontalSpeed - 100) / 150) * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
+            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(1000, 100, (targetFrontalSpeed - 100) / 300) * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
         }
 		else if(!grounder.grounded)
         {
@@ -647,16 +649,16 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
         Vector3 axis = Vector3.Cross(Vector3.up, rb.velocity.normalized);
         Vector3 velocityNormal = Vector3.Cross(rb.velocity.normalized, axis);
-        if (grounder.timeSinceUngrounded < 0.25f)
+        if (grounder.timeSinceUngrounded < 0.1f)
 		{
 			velocityNormal = grounder.groundNormal;
-        }
+		}
 		else
 		{
             velocityNormal = Vector3.Cross(rb.velocity.normalized, axis);
-			velocityNormal = new Vector3(0, velocityNormal.y, velocityNormal.z);
-            //Debug.Log(velocityNormal);
-        }
+			//velocityNormal = Vector3.Lerp(Vector3.back, Vector3.forward, Mathf.Clamp(-180, 180, horizontalDif.y)/360 + 0.5f);
+			//Debug.Log(Mathf.Clamp(horizontalDif.y, - 180, 180) / 360 + 0.5f);
+		}
 
         Quaternion _rotationDifference = Quaternion.FromToRotation(transform.up, velocityNormal);
         Vector3 _newForwardDirection = _rotationDifference * transform.forward;
@@ -664,8 +666,11 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
         Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 2.5f);
 
         rb.MoveRotation(_smoothRotation);
+		var name = Shader.PropertyToID("_VelocityNormal");
+		terrain.GetComponent<Renderer>().material.SetVector(Shader.PropertyToID("_VelocityNormal"), new Vector3(1,1,1));
+		Debug.Log(Vector3.Cross(rb.velocity.normalized, axis));
 
-        if (space > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
+		if (space > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
 		{
 			head.Rotate(-space * 5,0,0);
 			flipRotaion += -space * 5;

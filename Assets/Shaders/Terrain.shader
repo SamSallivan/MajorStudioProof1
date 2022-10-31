@@ -17,6 +17,8 @@ Shader "Custom/Terrain"
 		_Blend ("Blend", Range(0,0.5)) = 0.0
 
 		_NoiseTex("Noise Texture", 2D) = "White" {}
+
+		//_VelocityNormal("Velocity Normal", float3) = (0, 1, 0)
 	}
 	SubShader
 	{
@@ -53,6 +55,7 @@ Shader "Custom/Terrain"
 		float _Test;
 		float _Blend;
 		float planetBoundsSize;
+		float3 _VelocityNormal;
 
 		float oceanRadius;
 
@@ -109,12 +112,13 @@ Shader "Custom/Terrain"
 			}
 
 			//o.Albedo = dstFromCentre > oceanRadius;
-
-			
 			//o.Albedo = metallic;
 
 			o.Metallic = metallic;
 			o.Smoothness = _Glossiness;
+
+			
+			//float angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
 		}
 		ENDCG
 	}
