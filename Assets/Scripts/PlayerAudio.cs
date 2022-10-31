@@ -6,7 +6,7 @@ using FMOD.Studio;
 public class PlayerAudio : MonoBehaviour
 {
     [SerializeField]
-    private EmitterRef PlayerSlide;
+    public EmitterRef PlayerSlide;
     [SerializeField] private EmitterRef PlayerBGM;
     [SerializeField] private EmitterRef GroundHit;
     public StudioEventEmitter test;
