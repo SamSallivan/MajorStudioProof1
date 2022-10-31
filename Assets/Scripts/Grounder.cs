@@ -218,24 +218,25 @@ public class Grounder : MonoBehaviour
 		if (groundContactCount > 0 && timeSinceUngrounded > 0.5f)
 		{
 			var angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
+			angle = Mathf.Abs(angle) - Mathf.Floor(Mathf.Abs(pc.flipRotaion) / 270) * 30;
             //Debug.Log(angle);
-			if (Mathf.Abs(angle) <= 15)
+            if (angle <= 15)
 			{
 				pc.rating.text = "Perfect";
 				pc.energy += (60 - Mathf.Abs(angle)) / 1;
 
 			}
-			else if (Mathf.Abs(angle) <= 30)
+			else if (angle <= 30)
 			{
 				pc.rating.text = "Great";
                 pc.energy += (60 - Mathf.Abs(angle)) / 1;
             }
-			else if (Mathf.Abs(angle) <= 45)
+			else if (angle <= 45)
 			{
 				pc.rating.text = "Good";
                 pc.energy += (60 - Mathf.Abs(angle)) / 1;
             }
-            else if (Mathf.Abs(angle) <= 60)
+            else if (angle <= 60)
             {
                 pc.rating.text = "Okay";
                 pc.energy += (60 - Mathf.Abs(angle)) / 1;
@@ -244,6 +245,10 @@ public class Grounder : MonoBehaviour
             {
                 pc.rating.text = "Bad";
             }
+
+            pc.audioSettings.Hitvalue = (60 - angle)/60;
+
+            pc.ratingTimer = 1;
 			//Debug.Log(tempGroundNormal);
 			pc.flipRotaion = 0;
 			if (pc.energy >= 100)

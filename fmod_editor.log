@@ -8,7 +8,7 @@
 [LOG] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000019532EBC9F8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000024E209E7468 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -18,170 +18,9 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] Thread::initThread                       : Init FMOD nonblocking thread (0). Affinity: 0x4000000000000003, Priority: 0xFFFF7FFC, Stack Size: 114688, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] SystemI::createSound                     : setdata soundi = 0000019398601998 : node = 00000194D4D2DB10
-[LOG] SystemI::createSound                     : add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000019398601998
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSound                     :     setdata soundi = 00000193986012D8 : node = 00000194D4D2E510
-[LOG] SystemI::createSound                     :     add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000194D4D2DC20
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='05 Gemp _ Sinnr - Geode', format=5, channels=2, frequency=48000, lengthbytes=1975616, lengthpcm=7121250, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.912011.
-[LOG] Thread::initThread                       :     Init FMOD file thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFC, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000019398601998
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000193986012D8
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000194D4D2E620
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 22000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='08 SwuM - Swing 24', format=5, channels=2, frequency=48000, lengthbytes=2200992, lengthpcm=7880625, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.911435.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000193986012D8
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000019490CD89F8 : node = 0000019399906280
-[LOG] SystemI::createSound                     : add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000019490CD89F8
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     setdata soundi = 0000019490CD5AB8 : node = 0000019399905380
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSound                     :     add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000019399906390
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='05 Gemp _ Sinnr - Geode', format=5, channels=2, frequency=48000, lengthbytes=1975616, lengthpcm=7121250, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.912011.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000019490CD89F8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000019490CD5AB8
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000019399905490
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 22000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='08 SwuM - Swing 24', format=5, channels=2, frequency=48000, lengthbytes=2200992, lengthpcm=7880625, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.911435.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000019490CD5AB8
-[LOG] SoundI::release                          : 08 SwuM - Swing 24 (00000193986012D8)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (00000194989E0998)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (000001939110AA88)
-[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (0000019398601998)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (00000194989E0658)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (000001939110A8D8)
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000019398601128 : node = 00000194D4D2E790
-[LOG] SystemI::createSound                     : add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000019398601128
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     setdata soundi = 00000193986017E8 : node = 00000194D4D2E510
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSound                     :     add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000194D4D2E8A0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='05 Gemp _ Sinnr - Geode', format=5, channels=2, frequency=48000, lengthbytes=1975616, lengthpcm=7121250, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.912011.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000019398601128
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000193986017E8
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000194D4D2E620
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 22000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='08 SwuM - Swing 24', format=5, channels=2, frequency=48000, lengthbytes=2200992, lengthpcm=7880625, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.911435.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000193986017E8
-[LOG] SoundI::release                          : 08 SwuM - Swing 24 (0000019490CD5AB8)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (00000194989E0E78)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (000001939110A068)
-[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (0000019490CD89F8)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (00000194989E0318)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (000001939110AC38)
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0000019398601CF8 : node = 00000194D4D2D9D0
-[LOG] SystemI::createSound                     : add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000019398601CF8
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSound                     :     setdata soundi = 0000019398601998 : node = 00000194D4D2DB10
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSound                     :     add node to async list : head = 00000193983B2848.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000194D4D2DAE0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='05 Gemp _ Sinnr - Geode', format=5, channels=2, frequency=48000, lengthbytes=1975616, lengthpcm=7121250, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.912011.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000019398601CF8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000019398601998
-[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 4179296
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 4256
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 00000194D4D2DC20
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 22000
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='08 SwuM - Swing 24', format=5, channels=2, frequency=48000, lengthbytes=2200992, lengthpcm=7880625, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.911435.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000019398601998
-[LOG] SoundI::release                          : 08 SwuM - Swing 24 (00000193986017E8)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (00000194989E0998)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (000001939110AA88)
-[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (0000019398601128)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (00000194989E0178)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (000001939110A8D8)
-[LOG] SoundI::release                          : 08 SwuM - Swing 24 (0000019398601998)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (00000194989E0318)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (000001939110A068)
-[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (0000019398601CF8)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (00000194989E0E78)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (000001939110AC38)
+[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -189,5 +28,3 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.

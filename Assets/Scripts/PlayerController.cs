@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.UI;
 
 //Added Function Die(), Damage(),
 //And postprocessing effect when taken damage.
@@ -82,6 +83,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
     public AnimationCurve gravityCurve;
 
+    public AnimationCurve ratingCurve;
+
     public GameObject poofVFX; 
 
 	public GameObject slamVFX; 
@@ -96,9 +99,11 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
     public Vignette vg;
 
 	public TMP_Text rating;
-	public TMP_Text energyBar;
+    public float ratingTimer;
+    public float energy;
+    public GameObject energyBar;
+    public Gradient energyBarColor;
 
-	public float energy;
     public float energyConsumed;
     public float flipRotaion;
 
@@ -106,6 +111,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 	public float shift = 0;
     public float space = 0;
     public float targetFOV = 90;
+
+	public PlayerAudio audioSettings;
 
     private void Awake()
 	{
@@ -467,7 +474,9 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			vg.intensity.value = Mathf.Lerp(0, 0.3f, damageTimer/3);
 		}
 
-		energyBar.text = "Energy: " + Mathf.Round(energy);
+		audioSettings.Rvalue = transform.rotation.z * 2.5f;
+		audioSettings.Hvalue = targetFrontalSpeed/300;
+		audioSettings.Heightvalue = grounder.timeSinceUngrounded;
 
 
     }
@@ -516,13 +525,13 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			if (Mathf.Abs(h) > 0.1f)
 			{
                 
-				if (Mathf.Abs(horizontalDif.x) < 300 && grounder.timeSinceUngrounded > 0.25f)
+				if (Mathf.Abs(horizontalDif.x) < targetFrontalSpeed * 1.5f && grounder.timeSinceUngrounded > 0.25f)
 				{
-					rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (300 * (- h) - horizontalDif.x) * 2);
+					rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (targetFrontalSpeed * 1.5f * (- h) - horizontalDif.x) * 2);
                 }
-                else if (Mathf.Abs(horizontalDif.x) < 300)
+                else if (Mathf.Abs(horizontalDif.x) < targetFrontalSpeed * 1.5f)
                 {
-                    rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (300 * (- h) - horizontalDif.x) * 2);
+                    rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (targetFrontalSpeed * 1.5f * (- h) - horizontalDif.x) * 2);
                 }
             }
 			else
@@ -562,13 +571,20 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
                         energyConsumed -= 0.125f;
                     }
                 }
-				targetFrontalSpeed = /* v * */  100 + Mathf.Clamp(energyConsumed * 1.5f, 0, 250);
-				targetFOV = 90 + targetFrontalSpeed / 5 + Mathf.Lerp(0, 30, grounder.timeSinceUngrounded); 
+				targetFrontalSpeed = /* v * */  100 + Mathf.Clamp(energyConsumed * 1.0f, 0, 250);
+				targetFOV = 75 + targetFrontalSpeed / 5f + Mathf.Lerp(0, 20, grounder.timeSinceUngrounded/1.0f); 
 			}
 			if(grounder.timeSinceUngrounded < 0.25f)
-			{
-				energy += 0.1f;
-			}
+            {
+                if (energy < 100)
+                {
+                    energy += 0.1f;
+                }
+				else
+				{
+					energy = 100;
+				}
+            }
 
 
 
@@ -595,11 +611,11 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		//rb.AddForce(grounder.groundNormal * gravity * (grounder.timeSinceUngrounded));
 		if (grounder.timeSinceUngrounded < 0.25f || grounder.timeSinceUngrounded > 0.5f)
         {
-            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(400, 100, (targetFrontalSpeed - 100) / 150)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
+            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(400, 100, (targetFrontalSpeed - 100) / 150) * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
         }
 		else if(!grounder.grounded)
         {
-            rb.AddForce(Vector3.up * 50 * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (200 - Mathf.Abs(horizontalDif.x)) / 200);
+            rb.AddForce(Vector3.up * 50 * Mathf.Lerp(0, 1, (targetFrontalSpeed - 100) / 150) * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (200 - Mathf.Abs(horizontalDif.x)) / 200);
             rb.AddForce(rb.velocity.normalized * gravityCurve.Evaluate(grounder.timeSinceUngrounded));
         }
 
@@ -655,6 +671,16 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
         Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * 5);
 
-    }
+        if (ratingTimer > 0)
+        {
+            ratingTimer -= 0.01f;
+        }
+		rating.color = Color.Lerp(new Vector4(1,1,1,0), new Vector4(1, 0, 0, 1), ratingTimer);
+		rating.fontSize = ratingCurve.Evaluate(ratingTimer);
+		energyBar.GetComponent<RectTransform>().sizeDelta = new Vector2(energy, 100);
+		energyBar.GetComponent<Image>().color = energyBarColor.Evaluate(energy/100);
+
+
+}
 
 }

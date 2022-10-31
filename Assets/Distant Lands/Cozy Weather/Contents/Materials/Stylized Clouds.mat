@@ -101,7 +101,7 @@ Material:
     - _BorderEffect: 1
     - _BorderHeight: 0.5
     - _BorderSmoothness: 0.928
-    - _BorderVariation: 0.9
+    - _BorderVariation: 0.94
     - _BumpScale: 1
     - _ChemtrailsMoveSpeed: 0.503
     - _ChemtrailsMultiplier: 0
@@ -145,7 +145,7 @@ Material:
     - _MainCloudScale: 30
     - _MaxCloudCover: 0
     - _Metallic: 0
-    - _MinCloudCover: 0
+    - _MinCloudCover: 0.3
     - _Mode: 0
     - _MoonFlareFalloff: 22.9
     - _Multiplier: 5.85
@@ -216,7 +216,7 @@ Material:
     - _SecondLayer: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
     - _SecondLayer1: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
     - _ShadowDirection: {r: 0, g: 0, b: 0, a: 0}
-    - _StormDirection: {r: -0.9113079, g: -0, b: 0.41172555, a: 0}
+    - _StormDirection: {r: 0.55789465, g: -0, b: 0.82991177, a: 0}
     - _SunDirection: {r: 0.7131776, g: 0.6951529, b: 0.0902237, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
     - _Vector0: {r: 0.12, g: 1.5, b: 0, a: 0}
