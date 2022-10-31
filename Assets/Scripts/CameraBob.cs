@@ -103,11 +103,11 @@ public class CameraBob : MonoBehaviour
 		WeaponManager weapon = transform.parent.GetComponentInChildren<WeaponManager>();
 		if (weapon.isActiveAndEnabled && weapon.Holding() > 0f)
 		{
-			GetComponent<Camera>().fieldOfView = Mathf.LerpUnclamped(defaultFOV, defaultFOV + 6f, fovCurve.Evaluate(weapon.Holding()));
+			//GetComponent<Camera>().fieldOfView = Mathf.LerpUnclamped(defaultFOV, defaultFOV + 6f, fovCurve.Evaluate(weapon.Holding()));
 		}
 		else
 		{
-			GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, defaultFOV + (PlayerController.instance.rb.isKinematic ? 15f : 0f), Time.deltaTime * 20f);
+			//GetComponent<Camera>().fieldOfView = Mathf.Lerp(GetComponent<Camera>().fieldOfView, defaultFOV + (PlayerController.instance.rb.isKinematic ? 15f : 0f), Time.deltaTime * 20f);
 		}
 
 	}

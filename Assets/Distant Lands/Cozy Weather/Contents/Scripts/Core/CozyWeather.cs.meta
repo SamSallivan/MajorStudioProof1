@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: d17adf51a847d5a49b9b1b21927a8627
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - atmosphereProfile: {fileID: 11400000, guid: a22566a57d9c51145bbd2906d3b03211,
+      type: 2}
+  - weatherProfile: {fileID: 11400000, guid: ae94c1a397a01e442a11e8b23ebb1cef, type: 2}
+  - perennialProfile: {fileID: 11400000, guid: 8ce0d8458b4495b4593c1e03027a0ce5, type: 2}
+  - cozyAudio: {instanceID: 0}
+  - cozyMaterials: {instanceID: 0}
+  - climate: {instanceID: 0}
+  - calender: {instanceID: 0}
+  - ambience: {instanceID: 0}
+  - forecast: {instanceID: 0}
+  - triggerManager: {instanceID: 0}
+  - lightningManager: {instanceID: 0}
+  - saveLoad: {instanceID: 0}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 391aaa0b581312941b814e87136835b7, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

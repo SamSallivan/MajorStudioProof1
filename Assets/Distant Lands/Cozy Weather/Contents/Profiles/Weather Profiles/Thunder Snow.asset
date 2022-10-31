@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc9e8ccf7e1f314da24a604c1a11094, type: 3}
+  m_Name: Thunder Snow
+  m_EditorClassIdentifier: 
+  weatherTime: {x: 50, y: 90}
+  likelihood: 0.987
+  forecastNext:
+  - {fileID: 11400000, guid: 134d60bbf3db4074599790ce6df65c88, type: 2}
+  - {fileID: 11400000, guid: 4d539afa69e41c24592baf151ffc2e69, type: 2}
+  chances:
+  - limitType: 1
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0.044111505
+        outSlope: 0.044111505
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.07378249
+      - serializedVersion: 3
+        time: 0.7038452
+        value: 0.70022964
+        inSlope: 2.5624804
+        outSlope: 2.5624804
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.14414027
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 0
+  - limitType: 0
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.26379046
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.31609496
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  cloudSettings:
+    cloudCoverage: {x: 2, y: 2}
+    cumulusCoverage: 1
+    altocumulusCoverage: 0
+    chemtrailCoverage: 0
+    cirrostratusCoverage: 0
+    cirrusCoverage: 0
+    nimbusCoverage: 0
+    nimbusVariation: 0.9
+    nimbusHeightEffect: 1
+    borderHeight: 1
+    borderVariation: 0.9
+    borderEffect: 1
+  fogDensity: 2
+  windSpeed: 0.1
+  windAmount: 1
+  snowAccumulationSpeed: 0.01
+  wetnessSpeed: 0
+  particleFX: {fileID: 7714221331987295520, guid: 1bd0f5c0bad2bda49a0e3049f022e8b9, type: 3}
+  useThunder: 1
+  thunderTime: {x: 7, y: 13}
+  useVFX: 1
+  soundFX: {fileID: 8300000, guid: ebc097013423ebb4fb5091b136f17b26, type: 3}
+  FXVolume: 1
+  weatherFilter:
+    saturation: -0.406
+    value: -0.062
+    colorFilter: {r: 0.56310076, g: 0.6643601, b: 0.6981132, a: 1}
+  sunFilter: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 0}
+  cloudFilter: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}

@@ -142,7 +142,7 @@ Material:
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.389
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _GrassBlendAmount: 0.87
     - _GrassFlatnessThreshold: 0.1
@@ -183,13 +183,13 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GrassColour: {r: 0.30831054, g: 0.33962262, b: 0, a: 1}
     - _GrassColour2: {r: 0.08072188, g: 0.11320752, b: 0, a: 1}
-    - _GrassDark: {r: 0.14117648, g: 0.42352945, b: 0.015686275, a: 1}
-    - _GrassLight: {r: 0.5882353, g: 0.69411767, b: 0, a: 1}
+    - _GrassDark: {r: 1, g: 1, b: 1, a: 1}
+    - _GrassLight: {r: 1, g: 1, b: 1, a: 1}
     - _RockColour: {r: 0.23584908, g: 0.11488772, b: 0.070087224, a: 1}
     - _RockColour2: {r: 0.254717, g: 0.11335015, b: 0.054067295, a: 1}
-    - _RockDark: {r: 0.2509804, g: 0.1254902, b: 0.08627451, a: 1}
-    - _RockInnerDeep: {r: 0.61960787, g: 0.003921569, b: 0.9921569, a: 1}
-    - _RockInnerShallow: {r: 0.909804, g: 0.31764707, b: 0, a: 1}
-    - _RockLight: {r: 0.59607846, g: 0.37254903, b: 0.18823531, a: 1}
+    - _RockDark: {r: 1, g: 1, b: 1, a: 1}
+    - _RockInnerDeep: {r: 1, g: 1, b: 1, a: 1}
+    - _RockInnerShallow: {r: 1, g: 1, b: 1, a: 1}
+    - _RockLight: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

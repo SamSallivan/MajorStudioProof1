@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc9e8ccf7e1f314da24a604c1a11094, type: 3}
+  m_Name: Receeding Storm
+  m_EditorClassIdentifier: 
+  weatherTime: {x: 30, y: 40}
+  likelihood: 2
+  forecastNext:
+  - {fileID: 11400000, guid: df6d6974e6130cf4ba80f13cf41ae5f4, type: 2}
+  - {fileID: 11400000, guid: ae94c1a397a01e442a11e8b23ebb1cef, type: 2}
+  - {fileID: 11400000, guid: de311de87cd9d1e4cbe2d9899cbc5680, type: 2}
+  - {fileID: 11400000, guid: 5a5650a48d2869048b392b88aab5df10, type: 2}
+  chances: []
+  cloudSettings:
+    cloudCoverage: {x: 0.5, y: 0.5}
+    cumulusCoverage: 0.911
+    altocumulusCoverage: 0
+    chemtrailCoverage: 0
+    cirrostratusCoverage: 0
+    cirrusCoverage: 0
+    nimbusCoverage: 1.367
+    nimbusVariation: 0.819
+    nimbusHeightEffect: 1
+    borderHeight: 0.649
+    borderVariation: 0.9
+    borderEffect: 1
+  fogDensity: 1
+  windSpeed: 0.1
+  windAmount: 1
+  snowAccumulationSpeed: 0
+  wetnessSpeed: 0
+  particleFX: {fileID: 0}
+  useThunder: 0
+  thunderTime: {x: 7, y: 13}
+  useVFX: 0
+  soundFX: {fileID: 0}
+  FXVolume: 1
+  weatherFilter:
+    saturation: 0
+    value: 0
+    colorFilter: {r: 1, g: 1, b: 1, a: 1}
+  sunFilter: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
+  cloudFilter: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}

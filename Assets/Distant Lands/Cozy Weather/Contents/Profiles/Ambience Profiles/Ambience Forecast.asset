@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b31920385fbda7419b9438dec76c4b2, type: 3}
+  m_Name: Ambience Forecast
+  m_EditorClassIdentifier: 
+  ambienceProfiles:
+  - {fileID: 11400000, guid: 163ec11415232fd45b172996c6d1d187, type: 2}
+  - {fileID: 11400000, guid: 2c0d3541fbea53b4bbf421041ce171c2, type: 2}
+  - {fileID: 11400000, guid: d96e5743cddd0fc48a2f91da0e6ef745, type: 2}
+  - {fileID: 11400000, guid: 50a77ac732a2b1542a65c767f053e9c4, type: 2}
+  - {fileID: 11400000, guid: 525f9daaa6dd9a644b60eae1b5e6dc21, type: 2}
+  - {fileID: 11400000, guid: bb850a98247763840baae3e22d59a3f6, type: 2}
+  - {fileID: 11400000, guid: 7e0a98c1708f889499b953da36c08e69, type: 2}
+  - {fileID: 11400000, guid: e1524d194ad97f34ebbaddeea31a44ca, type: 2}
+  - {fileID: 11400000, guid: f98db20d469ea5f4ebd58dea98f3267d, type: 2}

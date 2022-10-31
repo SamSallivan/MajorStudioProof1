@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: eaadee6dd28a74a4d9f524556db8b83b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - particleFX: {instanceID: 0}
+  - SFX: {instanceID: 0}
+  - skyMat: {fileID: 2100000, guid: 6eb59c244ec58774ab61d691d4cf6a19, type: 2}
+  - cloudMat: {fileID: 2100000, guid: bfd828e6ce201e9478ecded123a8d908, type: 2}
+  - fogMat: {fileID: 2100000, guid: 8521660c56b3a0642a23d3f0ebacac58, type: 2}
+  executionOrder: 0
+  icon: {fileID: 2800000, guid: 391aaa0b581312941b814e87136835b7, type: 3}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -45,8 +45,9 @@ public class HeadPosition : MonoBehaviour
 	public void Bounce(float value = -0.25f)
 	{
 		bounceTimer = 0f;
-		bounceTarget = Mathf.Clamp(value, -0.75f, 0f);
-	}
+		//bounceTarget = Mathf.Clamp(value, -1.5f, 0f);
+        bounceTarget = Mathf.Clamp(value, 0f, 0f);
+    }
 
 	public void PositionUpdate()
 	{

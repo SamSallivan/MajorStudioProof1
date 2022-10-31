@@ -215,32 +215,41 @@ public class Grounder : MonoBehaviour
 	{
 		HandleCollision(c);
 
-		if (groundContactCount > 0 && timeSinceUngrounded > 1)
+		if (groundContactCount > 0 && timeSinceUngrounded > 0.5f)
 		{
 			var angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
             //Debug.Log(angle);
 			if (Mathf.Abs(angle) <= 15)
 			{
 				pc.rating.text = "Perfect";
-				//pc.energy += 60 - Mathf.Abs(angle);
+				pc.energy += (60 - Mathf.Abs(angle)) / 1;
 
 			}
 			else if (Mathf.Abs(angle) <= 30)
 			{
 				pc.rating.text = "Great";
-				pc.energy += 60 - Mathf.Abs(angle);
-			}
-			else if (Mathf.Abs(angle) <= 40)
+                pc.energy += (60 - Mathf.Abs(angle)) / 1;
+            }
+			else if (Mathf.Abs(angle) <= 45)
 			{
 				pc.rating.text = "Good";
-				pc.energy += 60 - Mathf.Abs(angle);
-			}
-			else
+                pc.energy += (60 - Mathf.Abs(angle)) / 1;
+            }
+            else if (Mathf.Abs(angle) <= 60)
             {
-                pc.rating.text = "Nope";
+                pc.rating.text = "Okay";
+                pc.energy += (60 - Mathf.Abs(angle)) / 1;
+            }
+            else
+            {
+                pc.rating.text = "Bad";
             }
 			//Debug.Log(tempGroundNormal);
 			pc.flipRotaion = 0;
+			if (pc.energy >= 100)
+			{
+				pc.energy = 100;
+            }
         }
 
     }

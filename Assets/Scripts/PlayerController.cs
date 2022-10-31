@@ -99,9 +99,15 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 	public TMP_Text energyBar;
 
 	public float energy;
-	public float flipRotaion;
+    public float energyConsumed;
+    public float flipRotaion;
 
-	private void Awake()
+    public float targetFrontalSpeed = 100;
+	public float shift = 0;
+    public float space = 0;
+    public float targetFOV = 90;
+
+    private void Awake()
 	{
         Cursor.lockState = CursorLockMode.Locked;
 		Cursor.visible = false;
@@ -357,7 +363,10 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		v = vTemp;
 		h = hTemp;
 
-		inputDir.x = h;
+        shift = (Input.GetKey(KeyCode.LeftShift) ? 1 : 0);
+        space = (Input.GetKey(KeyCode.Space) ? 1 : 0);
+
+        inputDir.x = h;
 		inputDir.y = 0f;
 		inputDir.z = v;
 		inputDir = inputDir.normalized;
@@ -458,8 +467,10 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			vg.intensity.value = Mathf.Lerp(0, 0.3f, damageTimer/3);
 		}
 
-		energyBar.text = "Energy: " + energy;
-	}
+		energyBar.text = "Energy: " + Mathf.Round(energy);
+
+
+    }
 
 	private void FixedUpdate()
 	{
@@ -469,14 +480,13 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
         //recalculates direction based on new ground normals
         gDir = tHead.TransformDirection(inputDir);
-		gDirCross = Vector3.Cross(Vector3.up, gDir).normalized;
-		gDirCrossProject = Vector3.ProjectOnPlane(grounder.groundNormal, gDirCross);
+		gDirCross = Vector3.Cross(Vector3.up, gDir).normalized; 
+        gDirCrossProject = Vector3.ProjectOnPlane(grounder.groundNormal, gDirCross);
 		gDir = Vector3.Cross(gDirCross, gDirCrossProject);
 
 
         Vector3 horizontalDif = tHead.InverseTransformDirection(- rb.velocity);
 		Debug.Log(horizontalDif.z);
-
 
         if (slide.slideState == 0)
 		{
@@ -506,56 +516,91 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			if (Mathf.Abs(h) > 0.1f)
 			{
                 
-				if (Mathf.Abs(horizontalDif.x) < 200 && grounder.timeSinceUngrounded > 0.25f)
+				if (Mathf.Abs(horizontalDif.x) < 300 && grounder.timeSinceUngrounded > 0.25f)
 				{
-					rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (200f * (- h) - horizontalDif.x));
+					rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (300 * (- h) - horizontalDif.x) * 2);
                 }
-                else if (Mathf.Abs(horizontalDif.x) < 200)
+                else if (Mathf.Abs(horizontalDif.x) < 300)
                 {
-                    rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (200f * (- h) - horizontalDif.x));
+                    rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (300 * (- h) - horizontalDif.x) * 2);
                 }
-
-             /*   if (Mathf.Abs(transform.rotation.y - 90) < 30 && grounder.timeSinceUngrounded > 0.25f)
-                {
-                    rb.AddTorque(Vector3.Cross(transform.forward, grounder.groundNormal) * (30f * (-h) - (transform.rotation.y - 90))/10);
-                }
-                else if (Mathf.Abs(transform.rotation.y - 90) < 30)
-                {
-                    rb.AddTorque(Vector3.Cross(transform.forward, grounder.groundNormal) * (30f * (-h) - (transform.rotation.y - 90))/10);
-                }*/
             }
 			else
 			{
 				if (Mathf.Abs(horizontalDif.x) > 0)
-                //if (Mathf.Abs(transform.rotation.y - 90) > 0.5f)
                 {
                     rb.AddForce(Vector3.Cross(transform.forward, grounder.groundNormal) * (-50f * horizontalDif.x));
-                    //rb.AddTorque(Vector3.Cross(transform.forward, grounder.groundNormal) * (-(transform.rotation.y - 90)) / 10);
                 }
+            }
+
+
+
+			if(shift == 1 && grounder.timeSinceUngrounded < 0.5f)
+			{
+				targetFrontalSpeed = 50;
+				targetFOV = 90;
+				if(energy > 1)
+                {
+					energy -= 1;
+					energyConsumed += 1;
+                }
+                if (energy < 0)
+                {
+                    energy = 0;
+                }
+            }
+			else
+			{
+				if(energyConsumed > 0)
+                {
+                    if (grounder.grounded)
+                    {
+                        energyConsumed -= 0.25f;
+                    }
+                    else if (!grounder.grounded)
+                    {
+                        energyConsumed -= 0.125f;
+                    }
+                }
+				targetFrontalSpeed = /* v * */  100 + Mathf.Clamp(energyConsumed * 1.5f, 0, 250);
+				targetFOV = 90 + targetFrontalSpeed / 5 + Mathf.Lerp(0, 30, grounder.timeSinceUngrounded); 
 			}
-			//slows down if player holds back
-			if (v < -0.5f)
+			if(grounder.timeSinceUngrounded < 0.25f)
+			{
+				energy += 0.1f;
+			}
+
+
+
+            if (Mathf.Abs(horizontalDif.z) < targetFrontalSpeed)// && grounder.timeSinceUngrounded < 0.25f)
+            {
+                rb.AddForce(transform.forward * ((targetFrontalSpeed - horizontalDif.z) + energyConsumed * 5));
+            }
+			else if (Mathf.Abs(horizontalDif.z) > targetFrontalSpeed )
+            {
+                rb.AddForce(-transform.forward * (targetFrontalSpeed - horizontalDif.z));
+            }
+
+
+
+            //slows down if player holds back
+            if (v < -0.5f)
 			{
 				//rb.AddForce(-vel.normalized * 20f);
 			}
-
-			if (Input.GetKeyDown(KeyCode.LeftShift))
-			{
-                rb.AddForce(tHead.forward * 20f, ForceMode.Impulse);
-            }
 		}
 
 		//applies gravity in the direction of ground normal
 		//so player does not slide off within the tolerable angle
 		//rb.AddForce(grounder.groundNormal * gravity * (grounder.timeSinceUngrounded));
-		if (grounder.timeSinceUngrounded <= 0.25f && !grounder.grounded)
+		if (grounder.timeSinceUngrounded < 0.25f || grounder.timeSinceUngrounded > 0.5f)
         {
-            rb.AddForce(Vector3.up * gravityCurve.Evaluate(grounder.timeSinceUngrounded) * (1 - Mathf.Abs(grounder.lastGroundNormal.z)) / 1 * (200 - Mathf.Abs(horizontalDif.x)) / 200);
-            rb.AddForce(rb.velocity.normalized * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); 
+            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(400, 100, (targetFrontalSpeed - 100) / 150)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
         }
-		else
+		else if(!grounder.grounded)
         {
-            rb.AddForce(grounder.groundNormal * -150);
+            rb.AddForce(Vector3.up * 50 * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (200 - Mathf.Abs(horizontalDif.x)) / 200);
+            rb.AddForce(rb.velocity.normalized * gravityCurve.Evaluate(grounder.timeSinceUngrounded));
         }
 
         if (extraUpForce)
@@ -572,7 +617,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
         Vector3 axis = Vector3.Cross(Vector3.up, rb.velocity.normalized);
         Vector3 velocityNormal = Vector3.Cross(rb.velocity.normalized, axis);
-        if (grounder.grounded)
+        if (grounder.timeSinceUngrounded < 0.25f)
 		{
 			velocityNormal = grounder.groundNormal;
         }
@@ -590,10 +635,10 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
         rb.MoveRotation(_smoothRotation);
 
-        if (Mathf.Abs(v) > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
+        if (space > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
 		{
-			head.Rotate(v * 5,0,0);
-			flipRotaion += v * 5;
+			head.Rotate(-space * 5,0,0);
+			flipRotaion += -space * 5;
 
 			if (Mathf.Abs(flipRotaion) /270 >= 1)
             {
@@ -605,6 +650,10 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		{
 			head.localRotation = Quaternion.Lerp(head.localRotation, Quaternion.identity, Time.deltaTime*5);
         }
+
+
+
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * 5);
 
     }
 
