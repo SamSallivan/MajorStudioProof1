@@ -474,15 +474,20 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			vg.intensity.value = Mathf.Lerp(0, 0.3f, damageTimer/3);
 		}
 
-		audioSettings.Rvalue = transform.rotation.z * 90f;
+		audioSettings.Rvalue = transform.rotation.z * 90f*1.5f;
 		Debug.Log(targetFrontalSpeed);
 		if (grounder.grounded)
 		{
-			audioSettings.Hvalue = targetFrontalSpeed / 300;
+            if (audioSettings.Hvalue < targetFrontalSpeed / 200)
+            {
+				audioSettings.Hvalue += Time.deltaTime;
+
+			}
+			//audioSettings.Hvalue = targetFrontalSpeed / 200;
 		}
 		else
 		{
-			audioSettings.PlayerSlide.Target.Stop();
+            //audioSettings.PlayerSlide.Target.Stop();
 			audioSettings.Hvalue = 0;
 		}
 		audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1);

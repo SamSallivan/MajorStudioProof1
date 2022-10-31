@@ -248,7 +248,7 @@ public class Grounder : MonoBehaviour
 
             pc.audioSettings.Hitvalue = (60 - angle)/60;
 			pc.audioSettings.playHit();
-			pc.audioSettings.PlayerSlide.Target.Play();
+			//pc.audioSettings.PlayerSlide.Target.Play();
 
 			pc.ratingTimer = 1;
 			//Debug.Log(tempGroundNormal);
