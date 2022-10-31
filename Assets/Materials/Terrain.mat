@@ -122,7 +122,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _Blend: 0.07
+    - _Blend: 0.075
     - _BlendOp: 0
     - _BumpScale: 1
     - _CameraFadingEnabled: 0
