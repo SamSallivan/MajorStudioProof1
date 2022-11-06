@@ -506,7 +506,22 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             //audioSettings.PlayerSlide.Target.Stop();
 			audioSettings.Hvalue = 0;
 		}
-		audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1);
+
+		if (grounder.timeSinceUngrounded < 2)
+		{
+			audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1);
+		}
+		else
+		{
+			if(Physics.Raycast(t.position, Vector3.down, out hit))
+			{
+				if ((transform.position.y - hit.point.y) < 10)
+                {
+                    audioSettings.Heightvalue = Mathf.Lerp(0, 1, (transform.position.y - hit.point.y)/10);
+                }
+			}
+			
+        }
 
 		speedText.text = Mathf.Round(targetFrontalSpeed * 50/20)	 + "km/h";
         distanceText.text = Mathf.Round(destination.transform.position.x - transform.position.x) + "m";
