@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 	{
 		bloom.intensity.value = 10;
 		ca.intensity.value = 10;
-		cg.mixerGreenOutRedIn.value = -100;
+		cg.mixerGreenOutRedIn.value = -75;
 		vg.intensity.value = 0.3f;
 
 		playerDecapitate.gameObject.SetActive(true);
@@ -757,5 +757,12 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 
 }
+	private void OnCollisionEnter(Collision collision)
+	{
+		if(collision.gameObject.layer == 16)
+		{
+			Die(collision.gameObject.transform.position - transform.position);
+		}
+	}
 
 }
