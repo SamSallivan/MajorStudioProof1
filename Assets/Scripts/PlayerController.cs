@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 //Added Function Die(), Damage(),
@@ -100,6 +101,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 	public TMP_Text rating;
     public TMP_Text speedText;
+    public TMP_Text distanceText;
+
     public float ratingTimer;
     public float energy;
     public GameObject energyBar;
@@ -117,6 +120,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 	public PlayerAudio audioSettings;
 
 	public Terrain terrain;
+
+	public GameObject destination;
 
 	private void Awake()
 	{
@@ -143,6 +148,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 		poofVFX = Instantiate(poofVFX, Vector3.zero, Quaternion.identity);
 		slamVFX = Instantiate(slamVFX, Vector3.zero, Quaternion.identity);
+
+		energyConsumed = 100;
     }
 
 	//Executes when taken damage from a source.
@@ -394,9 +401,14 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		if (Input.GetKeyDown(KeyCode.E))
 		{
 			dash.Dash();
-		}
+        }
 
-	}
+        if (Input.GetKey(KeyCode.Q))
+        {
+			Die(rb.velocity.normalized);
+        }
+
+    }
 
 	private void BobUpdate()
 	{
@@ -496,7 +508,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		}
 		audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1);
 
-		speedText.text = Mathf.Round(targetFrontalSpeed * 50/20) + "km/h";
+		speedText.text = Mathf.Round(targetFrontalSpeed * 50/20)	 + "km/h";
+        distanceText.text = Mathf.Round(destination.transform.position.x - transform.position.x) + "m";
     }
 
 	private void FixedUpdate()
@@ -668,7 +681,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             Quaternion _rotationDifference = Quaternion.FromToRotation(transform.up, velocityNormal);
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection, velocityNormal);
-            Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 0.75f);
+            Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 1.25f);
 
             rb.MoveRotation(_smoothRotation);
         }
@@ -679,7 +692,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             Quaternion _rotationDifference = Quaternion.FromToRotation(transform.up, velocityNormal);
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, _newRotation, Time.deltaTime * 5f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, _newRotation, Time.deltaTime * 3.5f);
 
             //rb.MoveRotation(_smoothRotation);
 
