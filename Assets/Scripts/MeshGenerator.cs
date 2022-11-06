@@ -96,8 +96,8 @@ public class MeshGenerator : MonoBehaviour {
 
         AssignMeshComponents ();
         meshFilter.sharedMesh = mesh;
-        meshRenderer.sharedMaterial = material;
-        material.SetFloat ("_MaxHeight", elevationScale);
+        //meshRenderer.sharedMaterial = material;
+        //material.SetFloat ("_MaxHeight", elevationScale);
     }
 
     void AssignMeshComponents () {

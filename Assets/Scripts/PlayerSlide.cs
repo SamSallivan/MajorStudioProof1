@@ -89,7 +89,7 @@ public class PlayerSlide : MonoBehaviour
                 //pc.rb.AddForce(pc.rb.velocity.normalized * 0.01f, ForceMode.Impulse);
 				
                 pc.bob.Angle(pc.h * 7.5f);
-                if (!windVFX.GetComponent<ParticleSystem>().isPlaying && pc.energyConsumed > 10 && pc.targetFrontalSpeed > 150)
+                if (!windVFX.GetComponent<ParticleSystem>().isPlaying && pc.energyConsumed > 10 && pc.targetFrontalSpeed > 30)
                 {
                     windVFX.GetComponent<ParticleSystem>().Play();
                 }

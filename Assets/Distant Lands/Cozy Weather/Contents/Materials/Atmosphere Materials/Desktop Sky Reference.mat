@@ -99,6 +99,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - LightIntensity1: 1
     - _AltocumulusMultiplier: 2
@@ -142,11 +143,11 @@ Material:
     - _Offset: 0
     - _Parallax: 0.02
     - _PatchworkAmount: 1
-    - _PatchworkBias: 0.341
+    - _PatchworkBias: 0.798
     - _PatchworkBias1: 0.532
-    - _PatchworkHeight: 0.84753823
+    - _PatchworkHeight: 0.76411957
     - _PatchworkPower: 1
-    - _PatchworkVariation: 0.84696186
+    - _PatchworkVariation: 0.7871612
     - _Power: 0.364
     - _RainbowIntensity: 0
     - _RainbowSize: 78.7
@@ -154,8 +155,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SunFlareFalloff: 25.5
-    - _SunSize: 0.87
+    - _SunFlareFalloff: 76.7
+    - _SunSize: 0.56
     - _TextureAmount: 1
     - _UVSec: 0
     - _WindSpeed: 3
@@ -187,3 +188,4 @@ Material:
     - _SunDirection: {r: -0.05530402, g: -0.97433305, b: -0.21821257, a: 0}
     - _SunFlareColor: {r: 0.25792095, g: 0.3264449, b: 0.33962262, a: 0}
     - _ZenithColor: {r: 0.06775116, g: 0.19630492, b: 0.31850946, a: 1}
+  m_BuildTextureStacks: []
