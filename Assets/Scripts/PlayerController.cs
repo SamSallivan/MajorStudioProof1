@@ -99,9 +99,11 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
     public Vignette vg;
 
 	public TMP_Text rating;
+    public TMP_Text speedText;
     public float ratingTimer;
     public float energy;
     public GameObject energyBar;
+    public GameObject consumeBar;
     public Gradient energyBarColor;
 
     public float energyConsumed;
@@ -493,6 +495,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			audioSettings.Hvalue = 0;
 		}
 		audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1);
+
+		speedText.text = Mathf.Round(targetFrontalSpeed * 50/20) + "km/h";
     }
 
 	private void FixedUpdate()
@@ -714,8 +718,14 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
         }
 		rating.color = Color.Lerp(new Vector4(1,1,1,0), new Vector4(1, 0, 0, 1), ratingTimer);
 		rating.fontSize = ratingCurve.Evaluate(ratingTimer);
-		energyBar.GetComponent<RectTransform>().sizeDelta = new Vector2(energy, 100);
-		energyBar.GetComponent<Image>().color = energyBarColor.Evaluate(energy/100);
+        consumeBar.GetComponent<RectTransform>().sizeDelta = new Vector2(energy, 100);
+        consumeBar.GetComponent<Image>().color = energyBarColor.Evaluate(energy/100);
+
+		if(shift != 1 || grounder.timeSinceUngrounded >= 0.5f)
+		{
+            energyBar.GetComponent<RectTransform>().sizeDelta = consumeBar.GetComponent<RectTransform>().sizeDelta;
+
+        }
 
 
 }

@@ -219,7 +219,7 @@ public class Grounder : MonoBehaviour
 		if (groundContactCount > 0 && timeSinceUngrounded > 0.5f)
 		{
 			var angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
-			angle = Mathf.Abs(angle) - Mathf.Floor(Mathf.Abs(pc.flipRotaion) / 270) * 30;
+			angle = Mathf.Abs(angle) - Mathf.Floor(Mathf.Abs(pc.flipRotaion) / 270) * 30 - timeSinceUngrounded * 5;
             //Debug.Log(angle);
             if (angle <= 15)
 			{
