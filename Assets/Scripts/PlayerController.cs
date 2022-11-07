@@ -659,21 +659,24 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		//rb.AddForce(grounder.groundNormal * gravity * (grounder.timeSinceUngrounded));
 		if (grounder.timeSinceUngrounded < 0.25f || grounder.timeSinceUngrounded > 0.5f)
         {
-            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(150, 50, (targetFrontalSpeed - 20) / 60) * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
+            /////////////////////////////////
+            //EDIT HERE FOR FALL FORCE!!!!///
+            /////////////////////////////////
+            rb.AddForce(grounder.groundNormal * -Mathf.Lerp(150, 75, (targetFrontalSpeed - 20) / 100) * gravityCurve.Evaluate(grounder.timeSinceUngrounded)); //* gravityCurve.Evaluate(grounder.timeSinceUngrounded)
 
-            if (Mathf.Abs(horizontalDif.y) < targetFrontalSpeed)
+            /*if (Mathf.Abs(horizontalDif.y) < targetFrontalSpeed)
             {
-                //rb.AddForce(grounder.groundNormal * -Mathf.Lerp(150, 20, (targetFrontalSpeed - 20) / 60) * gravityCurve.Evaluate(grounder.timeSinceUngrounded));
-
             }
             else if (Mathf.Abs(horizontalDif.y) > targetFrontalSpeed)
             {
-                //rb.AddForce(grounder.groundNormal * 10 * gravityCurve.Evaluate(grounder.timeSinceUngrounded));
-            }
+            }*/
         }
         else if(!grounder.grounded)
         {
-            rb.AddForce(Vector3.up * 10 * Mathf.Lerp(0, 1, (targetFrontalSpeed - 20) / 30) * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (40 - Mathf.Abs(horizontalDif.x)) / 40);
+            /////////////////////////////////
+            //EDIT HERE FOR JUMP FORCE!!!!///
+            /////////////////////////////////
+            rb.AddForce(Vector3.up * 10 * Mathf.Lerp(0, 1, (targetFrontalSpeed - 20) / 45) * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (40 - Mathf.Abs(horizontalDif.x)) / 40);
             rb.AddForce(rb.velocity.normalized * gravityCurve.Evaluate(grounder.timeSinceUngrounded));
         }
 
@@ -689,6 +692,9 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
         }
 
 
+        /////////////////////////////////
+        //EDIT HERE FOR CAMERA ROTATION///
+        /////////////////////////////////
         Vector3 axis = Vector3.Cross(Vector3.up, rb.velocity.normalized);
         Vector3 velocityNormal = Vector3.Cross(rb.velocity.normalized, axis);
         if (grounder.timeSinceUngrounded < 0.25f)
@@ -710,33 +716,28 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, _newRotation, Time.deltaTime * 2.5f);
-
-            //rb.MoveRotation(_smoothRotation);
-
-			//transform.rotation = _newRotation;
-            //Debug.Log(velocityNormal);
-            //velocityNormal = Vector3.Lerp(Vector3.back, Vector3.forward, Mathf.Clamp(-180, 180, horizontalDif.y)/360 + 0.5f);
-            //Debug.Log(Mathf.Clamp(horizontalDif.y, - 180, 180) / 360 + 0.5f);
         }
-		var name = Shader.PropertyToID("_VelocityNormal");
-		terrain.materialTemplate.SetVector(Shader.PropertyToID("_VelocityNormal"), Vector3.Cross(rb.velocity.normalized, axis));
-        //Debug.Log(Vector3.Cross(rb.velocity.normalized, axis));
 
-		if (space > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
-		{
-			head.Rotate(-space * 5,0,0);
-			flipRotaion += -space * 5;
+        if (space > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
+        {
+            head.Rotate(-space * 5, 0, 0);
+            flipRotaion += -space * 5;
 
-			if (Mathf.Abs(flipRotaion) /270 >= 1)
+            if (Mathf.Abs(flipRotaion) / 270 >= 1)
             {
-				rating.text = "FLIP!! * " + Mathf.Floor(Mathf.Abs(flipRotaion) / 270);
+                rating.text = "FLIP!! * " + Mathf.Floor(Mathf.Abs(flipRotaion) / 270);
 
-			}
+            }
         }
-		else
-		{
-			head.localRotation = Quaternion.Lerp(head.localRotation, Quaternion.identity, Time.deltaTime*5);
+        else
+        {
+            head.localRotation = Quaternion.Lerp(head.localRotation, Quaternion.identity, Time.deltaTime * 5);
         }
+
+
+
+        var name = Shader.PropertyToID("_VelocityNormal");
+		terrain.materialTemplate.SetVector(Shader.PropertyToID("_VelocityNormal"), Vector3.Cross(rb.velocity.normalized, axis));
 
 
 
@@ -757,8 +758,9 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
         }
 
-
 }
+
+
 	private void OnCollisionEnter(Collision collision)
 	{
 		if (collision.gameObject.layer == 17)
@@ -766,7 +768,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			energyConsumed += 10;
 			speedingUp = true;
 		}
-		if (collision.gameObject.layer == 16)
+		if (collision.gameObject.layer == 16 && !speedingUp)
 		{
 			Die(collision.gameObject.transform.position - transform.position);
 		}
