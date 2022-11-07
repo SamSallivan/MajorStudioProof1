@@ -594,9 +594,9 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 			if(shift == 1 && grounder.timeSinceUngrounded < 0.5f)
             {
-                Time.timeScale = Mathf.Lerp(Time.timeScale, 0.1f, Time.deltaTime*10);
+                //Time.timeScale = Mathf.Lerp(Time.timeScale, 0.1f, Time.deltaTime*10);
 
-				//targetFrontalSpeed = 30;
+				targetFrontalSpeed = 30;
 
                 targetFOV = 90;
 				if(energy > 1)
