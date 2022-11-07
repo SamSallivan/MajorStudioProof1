@@ -593,9 +593,12 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 
 			if(shift == 1 && grounder.timeSinceUngrounded < 0.5f)
-			{
-				targetFrontalSpeed = 10;
-				targetFOV = 90;
+            {
+                Time.timeScale = Mathf.Lerp(Time.timeScale, 0.1f, Time.deltaTime*10);
+
+				//targetFrontalSpeed = 30;
+
+                targetFOV = 90;
 				if(energy > 1)
                 {
 					energy -= 1;
@@ -607,8 +610,10 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
                 }
             }
 			else
-			{
-				if(energyConsumed > 0)
+            {
+                TimeManager.instance.StopSlowmo();
+
+                if (energyConsumed > 0)
                 {
                     if (grounder.grounded)
                     {
@@ -619,7 +624,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
                         energyConsumed -= 0.125f;
                     }
                 }
-				targetFrontalSpeed = /* v * */  20 + Mathf.Clamp(energyConsumed * 0.3f, 0, 50);
+				targetFrontalSpeed = 30 + Mathf.Clamp(energyConsumed * 0.3f, 0, 70);
 				targetFOV = 75 + targetFrontalSpeed / 5f + Mathf.Lerp(0, 30, grounder.timeSinceUngrounded/1.0f); 
 			}
 			if(grounder.timeSinceUngrounded < 0.25f)
@@ -676,7 +681,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             /////////////////////////////////
             //EDIT HERE FOR JUMP FORCE!!!!///
             /////////////////////////////////
-            rb.AddForce(Vector3.up * 10 * Mathf.Lerp(0, 1, (targetFrontalSpeed - 20) / 45) * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (40 - Mathf.Abs(horizontalDif.x)) / 40);
+            rb.AddForce(Vector3.up * 10 * Mathf.Lerp(0, 1, (targetFrontalSpeed - 20) / 100) * Mathf.Pow(grounder.lastGroundNormal.z, 2) * (40 - Mathf.Abs(horizontalDif.x)) / 40);
             rb.AddForce(rb.velocity.normalized * gravityCurve.Evaluate(grounder.timeSinceUngrounded));
         }
 
@@ -686,25 +691,20 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			extraUpForce = false;
 		}
 
-        if (!grounder.grounded)
-        {
-			transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, 90,transform.rotation.z), Time.deltaTime*2f);
-        }
-
 
         /////////////////////////////////
         //EDIT HERE FOR CAMERA ROTATION///
         /////////////////////////////////
         Vector3 axis = Vector3.Cross(Vector3.up, rb.velocity.normalized);
         Vector3 velocityNormal = Vector3.Cross(rb.velocity.normalized, axis);
-        if (grounder.timeSinceUngrounded < 0.25f)
+        if (grounder.timeSinceUngrounded < 0.5f)
 		{
 			velocityNormal = grounder.groundNormal;
 
             Quaternion _rotationDifference = Quaternion.FromToRotation(transform.up, velocityNormal);
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection, velocityNormal);
-            Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 3f);
+            Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 1.5f);
 
             rb.MoveRotation(_smoothRotation);
         }
@@ -716,6 +716,12 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection);
             transform.rotation = Quaternion.Lerp(transform.rotation, _newRotation, Time.deltaTime * 2.5f);
+        }
+
+        if (!grounder.grounded)
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, 90, 0), Time.deltaTime * 2f);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.rotation.x, 90, transform.rotation.z), Time.deltaTime * 2f);
         }
 
         if (space > 0.1f && !grounder.grounded && grounder.timeSinceUngrounded > 0.25f)
@@ -771,7 +777,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		if (collision.gameObject.layer == 16 && !speedingUp)
 		{
 			Die(collision.gameObject.transform.position - transform.position);
-		}
+            TimeManager.instance.SlowMotion(0.1f, 1f, 0.2f);
+        }
 	}
 	private void OnCollisionStay(Collision collision)
 	{

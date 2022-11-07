@@ -7,7 +7,7 @@ public class TimeManager : MonoBehaviour
     public static TimeManager instance;
 	private bool timeIsStopped;
 
-	private float slowmoScale;
+	public float slowmoScale;
 
 	private float slowmoDuration;
 
