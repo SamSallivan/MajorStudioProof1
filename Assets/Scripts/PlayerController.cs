@@ -123,6 +123,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 	public GameObject destination;
 
+	public bool speedingUp;
+
 	private void Awake()
 	{
         Cursor.lockState = CursorLockMode.Locked;
@@ -696,7 +698,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             Quaternion _rotationDifference = Quaternion.FromToRotation(transform.up, velocityNormal);
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection, velocityNormal);
-            Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 1.25f);
+            Quaternion _smoothRotation = Quaternion.Lerp(rb.rotation, _newRotation, Time.deltaTime * 3f);
 
             rb.MoveRotation(_smoothRotation);
         }
@@ -707,7 +709,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
             Quaternion _rotationDifference = Quaternion.FromToRotation(transform.up, velocityNormal);
             Vector3 _newForwardDirection = _rotationDifference * transform.forward;
             Quaternion _newRotation = Quaternion.LookRotation(_newForwardDirection);
-            transform.rotation = Quaternion.Lerp(transform.rotation, _newRotation, Time.deltaTime * 3.5f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, _newRotation, Time.deltaTime * 2.5f);
 
             //rb.MoveRotation(_smoothRotation);
 
@@ -759,9 +761,29 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 }
 	private void OnCollisionEnter(Collision collision)
 	{
-		if(collision.gameObject.layer == 16)
+		if (collision.gameObject.layer == 17)
+		{
+			energyConsumed += 10;
+			speedingUp = true;
+		}
+		if (collision.gameObject.layer == 16)
 		{
 			Die(collision.gameObject.transform.position - transform.position);
+		}
+	}
+	private void OnCollisionStay(Collision collision)
+	{
+		if (collision.gameObject.layer == 17)
+		{
+			energyConsumed += 0.25f;
+			speedingUp = true;
+		}
+	}
+	private void OnCollisionExit(Collision collision)
+	{
+		if (collision.gameObject.layer == 17)
+		{
+			speedingUp = false;
 		}
 	}
 

@@ -89,10 +89,13 @@ public class PlayerSlide : MonoBehaviour
                 //pc.rb.AddForce(pc.rb.velocity.normalized * 0.01f, ForceMode.Impulse);
 				
                 pc.bob.Angle(pc.h * 7.5f);
-                if (!windVFX.GetComponent<ParticleSystem>().isPlaying && pc.energyConsumed > 10 && pc.targetFrontalSpeed > 30)
+				windVFX.GetComponent<ParticleSystem>().transform.rotation = Quaternion.LookRotation(pc.rb.velocity.normalized);
+				windVFX.GetComponent<ParticleSystem>().transform.Rotate(95, 0, 0);
+				if ((!windVFX.GetComponent<ParticleSystem>().isPlaying && pc.energyConsumed > 25 && pc.targetFrontalSpeed > 45) || (!windVFX.GetComponent<ParticleSystem>().isPlaying && pc.speedingUp))
                 {
                     windVFX.GetComponent<ParticleSystem>().Play();
-                }
+
+				}
 
                 if (pc.vel.sqrMagnitude >= 64f && slideTimer > 0f)
                 {

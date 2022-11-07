@@ -143,11 +143,11 @@ Material:
     - _Offset: 0
     - _Parallax: 0.02
     - _PatchworkAmount: 1
-    - _PatchworkBias: 0.341
+    - _PatchworkBias: 1
     - _PatchworkBias1: 0.532
-    - _PatchworkHeight: 0.84753823
+    - _PatchworkHeight: 0.6860465
     - _PatchworkPower: 1
-    - _PatchworkVariation: 0.84696186
+    - _PatchworkVariation: 0.7476562
     - _Power: 0.364
     - _RainbowIntensity: 0
     - _RainbowSize: 78.7
@@ -155,8 +155,8 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _SunFlareFalloff: 25.5
-    - _SunSize: 0.87
+    - _SunFlareFalloff: 43.7
+    - _SunSize: 1
     - _TextureAmount: 1
     - _UVSec: 0
     - _WindSpeed: 3
@@ -180,7 +180,7 @@ Material:
     - _LightColumnColor: {r: 0.28487295, g: 1.6986868, b: 2.0152123, a: 0}
     - _MoonColor: {r: 0.11000357, g: 0.2264151, b: 0.22527522, a: 0}
     - _MoonDirection: {r: -0.640357, g: -0.766766, b: -0.04486454, a: 0}
-    - _MoonFlareColor: {r: 0.008822088, g: 0.030660376, b: 0.02702066, a: 0}
+    - _MoonFlareColor: {r: 0.007008724, g: 0.033018872, b: 0.025921568, a: 1}
     - _StarColor: {r: 0, g: 0, b: 0, a: 0}
     - _StormDirection: {r: 0, g: 0, b: 0, a: 0}
     - _SunColor: {r: 10.432951, g: 10.432951, b: 10.432951, a: 0}

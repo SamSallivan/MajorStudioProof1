@@ -94,5 +94,5 @@ Material:
     - _Color1: {r: 1, g: 0, b: 0, a: 0}
     - _Color2: {r: 0, g: 0.7294121, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _VelocityNormal: {r: -0.092687614, g: 0.99132276, b: -0.0033249042, a: 0}
+    - _VelocityNormal: {r: 0.36055776, g: 0.81617755, b: 0.1415271, a: 0}
   m_BuildTextureStacks: []
