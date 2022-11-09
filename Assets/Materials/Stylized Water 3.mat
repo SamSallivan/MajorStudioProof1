@@ -2,17 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 8
+  serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Stylized Water 3
   m_Shader: {fileID: 4800000, guid: d93166428d3eaf142a9a6682dc5c798c, type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords:
-  - FANCY_SHADOWS
-  - SAMPLE_SHADOWS
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -68,9 +65,9 @@ Material:
     - _DeepColor: {r: 0, g: 0, b: 0, a: 1}
     - _EdgeFoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _FarColor: {r: 0.4716981, g: 0, b: 0.021331714, a: 1}
-    - _SSSColor: {r: 0.029556843, g: 0.002428216, b: 0.012983031, a: 1}
+    - _SSSColor: {r: 0.009433985, g: 0.0010298555, b: 0.003431034, a: 1}
     - _ShadowColor: {r: 0.03551086, g: 0.30351532, b: 0.3584906, a: 1}
-    - _ShallowColor: {r: 0.5137255, g: 0.9664401, b: 1, a: 0}
+    - _ShallowColor: {r: 0.003890552, g: 0.14985727, b: 0.16037738, a: 0}
     - _SparkleColor: {r: 1, g: 1, b: 1, a: 1}
     - _SunSpecularColor: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
   m_BuildTextureStacks: []
