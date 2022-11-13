@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{8a8fc2c9-2a34-4bac-b11d-09a5cad4b349}">
+		<property name="assetPath">
+			<value>639961__mikefozzy98__failed-sfx.ogg</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.6700208333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{81c202f3-4221-4c0f-9a9b-63a5b351e892}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9eb8c55e-661c-4e4d-809b-81399ed62788}">
+		<property name="assetPath">
+			<value>20 Junior State - Sashimi.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>130.31251700680272</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{81c202f3-4221-4c0f-9a9b-63a5b351e892}</destination>
+		</relationship>
+	</object>
+</objects>

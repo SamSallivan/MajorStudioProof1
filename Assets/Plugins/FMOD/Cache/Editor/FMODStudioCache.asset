@@ -1,5 +1,34 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8072297627158372702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM 2
+  m_EditorClassIdentifier: 
+  Path: event:/BGM 2
+  Guid:
+    Data1: -1182528672
+    Data2: 1338656758
+    Data3: 1224333969
+    Data4: -2064429051
+  Banks:
+  - {fileID: -4993276555841510565}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1680306894928962195}
+  - {fileID: 6665313454984887173}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 182000
 --- !u!114 &-7307737199672730863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +44,10 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Effects.bank
   Name: Effects
   StudioPath: bank:/Effects
-  lastModified: 638034252791279680
+  lastModified: 638039572700807093
   FileSizes:
   - Name: Desktop
-    Value: 44832
+    Value: 63008
   Exists: 1
 --- !u!114 &-6591158912026964032
 MonoBehaviour:
@@ -45,6 +74,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: 2670939428614681668}
+  - {fileID: 6728572633808139901}
   MinDistance: 1
   MaxDistance: 20
   Length: 182214
@@ -63,10 +93,10 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Background.bank
   Name: Background
   StudioPath: bank:/Background
-  lastModified: 638034252791229544
+  lastModified: 638039572700616601
   FileSizes:
   - Name: Desktop
-    Value: 4183584
+    Value: 6038656
   Exists: 1
 --- !u!114 &-2894691650352716921
 MonoBehaviour:
@@ -125,6 +155,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 383
+--- !u!114 &-1680306894928962195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BGM 2/Space
+  m_EditorClassIdentifier: 
+  Name: Space
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1277440331
+    data2: 749741666
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-1115593524925867151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +194,7 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638033712474853837
+  lastModified: 638039572700817140
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -190,12 +244,14 @@ MonoBehaviour:
   - {fileID: -2894691650352716921}
   - {fileID: -6591158912026964032}
   - {fileID: -2286813818894428106}
+  - {fileID: 6499077991773793437}
+  - {fileID: -8072297627158372702}
   EditorParameters: []
   MasterBanks:
   - {fileID: -1115593524925867151}
   StringsBanks:
   - {fileID: 3006857815085059576}
-  cacheTime: 638034252791279680
+  cacheTime: 638039572700827147
   cacheVersion: 131593
 --- !u!114 &170908590347944031
 MonoBehaviour:
@@ -260,10 +316,10 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638033712474863854
+  lastModified: 638039572700827147
   FileSizes:
   - Name: Desktop
-    Value: 1144
+    Value: 1262
   Exists: 1
 --- !u!114 &6134343720130376234
 MonoBehaviour:
@@ -285,6 +341,81 @@ MonoBehaviour:
   ID:
     data1: 4281868776
     data2: 1249752393
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6499077991773793437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Failure
+  m_EditorClassIdentifier: 
+  Path: event:/Failure
+  Guid:
+    Data1: 1868138752
+    Data2: 1253769477
+    Data3: -518073973
+    Data4: 1063564714
+  Banks:
+  - {fileID: -7307737199672730863}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1694
+--- !u!114 &6665313454984887173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BGM 2/Death
+  m_EditorClassIdentifier: 
+  Name: Death
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 48819533
+    data2: 1570357515
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &6728572633808139901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BGM/Death
+  m_EditorClassIdentifier: 
+  Name: Death
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 48819533
+    data2: 1570357515
   Type: 0
   IsGlobal: 0
   Labels: []

@@ -230,18 +230,18 @@ public class Grounder : MonoBehaviour
 			else if (angle <= 30)
 			{
 				pc.rating.text = "Great";
-                pc.energy += (60 - Mathf.Abs(angle)) / 1;
-            }
+                pc.energy += (60 - Mathf.Abs(angle)) / 1.25f;
+			}
 			else if (angle <= 45)
 			{
 				pc.rating.text = "Good";
-                pc.energy += (60 - Mathf.Abs(angle)) / 1;
-            }
+                pc.energy += (60 - Mathf.Abs(angle)) / 1.25f;
+			}
             else if (angle <= 60)
             {
                 pc.rating.text = "Okay";
-                pc.energy += (60 - Mathf.Abs(angle)) / 1;
-            }
+                pc.energy += (60 - Mathf.Abs(angle)) / 1.25f;
+			}
             else
             {
                 pc.rating.text = "Bad";
