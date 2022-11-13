@@ -755,6 +755,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
         }
 		rating.color = Color.Lerp(new Vector4(1,1,1,0), new Vector4(1, 0, 0, 1), ratingTimer);
 		rating.fontSize = ratingCurve.Evaluate(ratingTimer);
+		//
         consumeBar.GetComponent<RectTransform>().sizeDelta = new Vector2(energy, 100);
         consumeBar.GetComponent<Image>().color = energyBarColor.Evaluate(energy/100);
 
