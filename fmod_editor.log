@@ -6,7 +6,7 @@
 [LOG] OutputCoreAudio::init                    : Maximum hardware read size: 512 samples, Software buffer size: 512 samples, Number of software buffers: 4.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0x7f8d5f852608 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0x7fb3d3e70808 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -19,52 +19,3 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f8d9d90eb48
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f8d9d90eb48
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 40160
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 4672
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000100ad94c
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x1d59d9372
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x1d59d9430
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x1d59d9463
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x1d59d9501
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x7f8d5d8188c8
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='groundHitSound', format=5, channels=2, frequency=48000, lengthbytes=4256, lengthpcm=18417, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.360687.
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x7f8d9d90eb48
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x7f8d9d90eb48
-[LOG] SoundI::release                          : 08 SwuM - Swing 24 (0x7f8d9d854158)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (0x7f8dfc975fe8)
-[LOG] SoundI::release                          :     08 SwuM - Swing 24 (0x7f8d5b5fc7c8)
-[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (0x7f8d9d841378)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0x7f8d9d921968)
-[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0x7f8d9d90eb48)
-[LOG] SoundI::release                          :  (0x7f8d9d82fb68)
-[LOG] SoundI::release                          :     SlideLoop2 (0x7f8d8baa1fe8)
-[LOG] SoundI::release                          :  (0x7f8d5d896258)
-[LOG] SoundI::release                          :     groundHitSound (0x7f8d5d80d168)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.

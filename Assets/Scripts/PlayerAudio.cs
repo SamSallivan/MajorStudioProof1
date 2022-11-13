@@ -9,15 +9,17 @@ public class PlayerAudio : MonoBehaviour
     public EmitterRef PlayerSlide;
     [SerializeField] private EmitterRef PlayerBGM;
     [SerializeField] private EmitterRef GroundHit;
+    [SerializeField] public EmitterRef Fail;
     public StudioEventEmitter test;
     // ---reference values--
     public float Rvalue;        //slide rotation, left to right: -90 - 90
     public float Hvalue;        //slide hardness, light to hard: 0-1
     public float Heightvalue;   //current space, on ground to in air: 0-1
     public float Hitvalue;      //how hard player hit floor, bad to perfect landing: 0-1
+    public float DeathValue;      //live to dead landing: 0-1
+
     FMOD.Studio.EventInstance playerState;
     FMOD.Studio.PARAMETER_ID fullHealthParameterId;
-
     [FMODUnity.EventRef]
     public string HealEvent = "";
     private void PlayEmitterAndSetParameter()
@@ -26,6 +28,7 @@ public class PlayerAudio : MonoBehaviour
         PlayerSlide.Target.SetParameter("SlideRotation", Rvalue);
         PlayerSlide.Target.SetParameter("SlideHardness", Hvalue);
         PlayerBGM.Target.SetParameter("Space", Heightvalue);
+        PlayerBGM.Target.SetParameter("Death", DeathValue);
     }
 
     private void Start()
@@ -56,6 +59,10 @@ public class PlayerAudio : MonoBehaviour
             //playerState.release();
             //GroundHit.Target.Play();
             //test.Play();
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            Fail.Target.Play();
         }
     }
 

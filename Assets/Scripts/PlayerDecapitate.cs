@@ -28,6 +28,7 @@ public class PlayerDecapitate : MonoBehaviour
         if(Input.GetKey(KeyCode.R)){
             Scene scene = SceneManager.GetActiveScene(); 
             SceneManager.LoadScene(scene.name);
+			player.audioSettings.DeathValue = 0;
         }
     }
 

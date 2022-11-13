@@ -125,6 +125,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 	public bool speedingUp;
 
+	public float initialSpeed = 100;
+
 	private void Awake()
 	{
         Cursor.lockState = CursorLockMode.Locked;
@@ -151,7 +153,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		poofVFX = Instantiate(poofVFX, Vector3.zero, Quaternion.identity);
 		slamVFX = Instantiate(slamVFX, Vector3.zero, Quaternion.identity);
 
-		energyConsumed = 100;
+		energyConsumed = initialSpeed;
     }
 
 	//Executes when taken damage from a source.
@@ -204,6 +206,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		playerDecapitate.gameObject.SetActive(true);
 		playerDecapitate.Decapitate(tHead, dir);
 		base.gameObject.SetActive(false);
+		audioSettings.Fail.Target.Play();
+		audioSettings.DeathValue = 1;
 	}
 
 	private void JumpOrClimb()
@@ -498,7 +502,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 		{
             if (audioSettings.Hvalue < targetFrontalSpeed / 200)
             {
-				audioSettings.Hvalue += Time.deltaTime;
+				audioSettings.Hvalue += Time.deltaTime * 0.5f;
 
 			}
 			//audioSettings.Hvalue = targetFrontalSpeed / 200;
@@ -511,7 +515,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
 		if (grounder.timeSinceUngrounded < 2)
 		{
-			audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1);
+			//audioSettings.Heightvalue = Mathf.Clamp(grounder.timeSinceUngrounded - 1, 0, 1); 
+			audioSettings.Heightvalue = 0;
 		}
 		else
 		{
@@ -519,7 +524,7 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 			{
 				if ((transform.position.y - hit.point.y) < 10)
                 {
-                    audioSettings.Heightvalue = Mathf.Lerp(0, 1, (transform.position.y - hit.point.y)/10);
+                    //audioSettings.Heightvalue = Mathf.Lerp(0, 1, (transform.position.y - hit.point.y)/10);
                 }
 			}
 			
