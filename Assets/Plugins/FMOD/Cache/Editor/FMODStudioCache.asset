@@ -44,7 +44,7 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Effects.bank
   Name: Effects
   StudioPath: bank:/Effects
-  lastModified: 638039648782156506
+  lastModified: 638039575476727708
   FileSizes:
   - Name: Desktop
     Value: 63008
@@ -93,7 +93,7 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Background.bank
   Name: Background
   StudioPath: bank:/Background
-  lastModified: 638039673485945072
+  lastModified: 638039708218846159
   FileSizes:
   - Name: Desktop
     Value: 6038656
@@ -194,7 +194,7 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638039648782176562
+  lastModified: 638023896346462644
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -251,7 +251,7 @@ MonoBehaviour:
   - {fileID: -1115593524925867151}
   StringsBanks:
   - {fileID: 3006857815085059576}
-  cacheTime: 638039673485945072
+  cacheTime: 638039708218846159
   cacheVersion: 131593
 --- !u!114 &170908590347944031
 MonoBehaviour:
@@ -316,7 +316,7 @@ MonoBehaviour:
   Path: Fmod/fmodSlide/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638039648782196614
+  lastModified: 638039575476736289
   FileSizes:
   - Name: Desktop
     Value: 1262
