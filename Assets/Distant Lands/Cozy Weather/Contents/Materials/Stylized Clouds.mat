@@ -99,9 +99,9 @@ Material:
     - _AltocumulusMultiplier: 0
     - _AltocumulusScale: 1
     - _BorderEffect: 1
-    - _BorderHeight: 0.5
+    - _BorderHeight: 0.54
     - _BorderSmoothness: 0.928
-    - _BorderVariation: 0.94
+    - _BorderVariation: 0.888
     - _BumpScale: 1
     - _ChemtrailsMoveSpeed: 0.503
     - _ChemtrailsMultiplier: 0
@@ -126,7 +126,7 @@ Material:
     - _Coverage: 0.61
     - _Coverage1: 0
     - _CumulusCoverage: 1
-    - _CumulusCoverageMultiplier: 0.703
+    - _CumulusCoverageMultiplier: 0.7
     - _CumulusCoverageMultiplier1: 1
     - _Cutoff: 0.5
     - _DetailAmount: 30
@@ -143,9 +143,9 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _MainCloudScale: 20
-    - _MaxCloudCover: 0.3
+    - _MaxCloudCover: 0.5
     - _Metallic: 0
-    - _MinCloudCover: 0.3
+    - _MinCloudCover: 0.5
     - _Mode: 0
     - _MoonFlareFalloff: 22.9
     - _Multiplier: 5.85
@@ -153,7 +153,7 @@ Material:
     - _NimbusHeight: 1
     - _NimbusHeightEffect: 1
     - _NimbusMultiplier: 0
-    - _NimbusVariation: 0.9
+    - _NimbusVariation: 1
     - _NoiseScale: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -216,7 +216,7 @@ Material:
     - _SecondLayer: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
     - _SecondLayer1: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
     - _ShadowDirection: {r: 0, g: 0, b: 0, a: 0}
-    - _StormDirection: {r: -0.9986981, g: -0, b: 0.05101073, a: 0}
+    - _StormDirection: {r: -0.99635166, g: -0, b: 0.085342534, a: 0}
     - _SunDirection: {r: 0.8219728, g: 0.5680216, b: 0.041379064, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
     - _Vector0: {r: 0.12, g: 1.5, b: 0, a: 0}

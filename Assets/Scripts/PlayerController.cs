@@ -100,10 +100,13 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
     public Vignette vg;
 
 	public TMP_Text rating;
+	public TMP_Text flips;
     public TMP_Text speedText;
     public TMP_Text distanceText;
+	public Image flipBar;
 
     public float ratingTimer;
+	public float flipTimer;
     public float energy;
     public GameObject energyBar;
     public GameObject consumeBar;
@@ -736,8 +739,8 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
 
             if (Mathf.Abs(flipRotaion) / 270 >= 1)
             {
-                rating.text = "FLIP!! * " + Mathf.Floor(Mathf.Abs(flipRotaion) / 270);
-
+                flips.text = "FLIP!! x " + Mathf.Floor(Mathf.Abs(flipRotaion) / 270);
+				flipTimer = 1.5f;
             }
         }
         else
@@ -760,6 +763,16 @@ public class PlayerController : MonoBehaviour, Damagable//, Slappable
         }
 		rating.color = Color.Lerp(new Vector4(1,1,1,0), new Vector4(1, 0, 0, 1), ratingTimer);
 		rating.fontSize = ratingCurve.Evaluate(ratingTimer);
+		//
+
+
+		if (flipTimer > 0)
+		{
+			flipTimer -= 0.01f;
+		}
+		flips.color = Color.Lerp(new Vector4(1, 1, 1, 0), new Vector4(1, 1, 1, 1), flipTimer);
+		flipBar.color = Color.Lerp(new Vector4(1, 1, 1, 0), new Vector4(0, 0, 0, 0.3f), flipTimer);
+
         consumeBar.GetComponent<RectTransform>().sizeDelta = new Vector2(energy, 100);
         consumeBar.GetComponent<Image>().color = energyBarColor.Evaluate(energy/100);
 
