@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000027A02C862E8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000027BA554F968 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,12 +20,140 @@
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 57152
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 5856
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000094E9CFF2A8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE34E633C0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE34E63380
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE34E634A0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE34E63560
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000277B35EDB38
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='groundHitSound', format=5, channels=2, frequency=48000, lengthbytes=4256, lengthpcm=18417, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.360687.
+[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000277B36A4E28 : node = 0000027A010FB480
+[LOG] SystemI::createSound                     : add node to async list : head = 0000027B29D1B178.  list count = 0
+[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000277B36A4E28
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     setdata soundi = 00000277B36A25A8 : node = 0000027A010FB5C0
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000027B29D1B178.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6029312
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 9344
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000027A010FB590
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 12000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='20 Junior State - Sashimi', format=5, channels=2, frequency=48000, lengthbytes=1848928, lengthpcm=6255000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.911435.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000277B36A4E28
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000277B36A25A8
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6029312
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 9344
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000027A010FB6D0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='05 Gemp _ Sinnr - Geode', format=5, channels=2, frequency=48000, lengthbytes=1975616, lengthpcm=7121250, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.912011.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000277B36A25A8
+[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (00000277B5DAC918)
+[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0000027B27018468)
+[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (00000277B5DB1438)
+[LOG] SoundI::release                          : 20 Junior State - Sashimi (00000277B5DAC0A8)
+[LOG] SoundI::release                          :     20 Junior State - Sashimi (0000027B27018C88)
+[LOG] SoundI::release                          :     20 Junior State - Sashimi (00000277B5DB1288)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 57152
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 5856
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 00000094E9CFF2A8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFE34E633C0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFE34E63380
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFE34E634A0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFE34E63560
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 00000277B35ED2F8
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='639961__mikefozzy98__failed-sfx', format=5, channels=2, frequency=48000, lengthbytes=16928, lengthpcm=80161, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.999969.
+[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000277B36A4918 : node = 0000027A010FB200
+[LOG] SystemI::createSound                     : add node to async list : head = 0000027B29D1B178.  list count = 0
+[LOG] SystemI::createSound                     : filename = Fmod/fmodSlide/Build/Desktop/Background.bank : mode 02010082
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000277B36A4918
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
+[LOG] SystemI::createSound                     :     setdata soundi = 00000277B36A4AC8 : node = 0000027A010FB340
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSound                     :     add node to async list : head = 0000027B29D1B178.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6029312
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 9344
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000027A010FB310
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 12000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='20 Junior State - Sashimi', format=5, channels=2, frequency=48000, lengthbytes=1848928, lengthpcm=6255000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.911435.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000277B36A4918
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000277B36A4AC8
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod/fmodSlide/Build/Desktop/Background.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 6029312
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 9344
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000027A010FB450
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 26000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='05 Gemp _ Sinnr - Geode', format=5, channels=2, frequency=48000, lengthbytes=1975616, lengthpcm=7121250, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.912011.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000277B36A4AC8
+[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (00000277B36A25A8)
+[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0000027B270197E8)
+[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0000027B4580EA98)
+[LOG] SoundI::release                          : 20 Junior State - Sashimi (00000277B36A4E28)
+[LOG] SoundI::release                          :     20 Junior State - Sashimi (0000027B270170E8)
+[LOG] SoundI::release                          :     20 Junior State - Sashimi (0000027B4580EDF8)
+[LOG] SoundI::release                          : 05 Gemp _ Sinnr - Geode (00000277B36A4AC8)
+[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0000027B27019168)
+[LOG] SoundI::release                          :     05 Gemp _ Sinnr - Geode (0000027B4580EC48)
+[LOG] SoundI::release                          : 20 Junior State - Sashimi (00000277B36A4918)
+[LOG] SoundI::release                          :     20 Junior State - Sashimi (0000027B2701AEA8)
+[LOG] SoundI::release                          :     20 Junior State - Sashimi (0000027B4580DD18)
+[LOG] SoundI::release                          :  (0000027A02C75D88)
+[LOG] SoundI::release                          :     639961__mikefozzy98__failed-sfx (0000027B27017C48)
+[LOG] SoundI::release                          :  (0000027B26FDC568)
+[LOG] SoundI::release                          :     SlideLoop2 (0000027B27016DA8)
+[LOG] SoundI::release                          :  (0000027A02C757C8)
+[LOG] SoundI::release                          :     groundHitSound (0000027B27018AE8)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -33,3 +161,5 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
