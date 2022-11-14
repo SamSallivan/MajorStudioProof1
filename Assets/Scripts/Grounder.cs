@@ -216,6 +216,7 @@ public class Grounder : MonoBehaviour
 	{
 		HandleCollision(c);
 
+
 		if (groundContactCount > 0 && timeSinceUngrounded > 0.5f)
 		{
 			var angle = Vector3.Angle(pc.vel.normalized, tempGroundNormal) - 90;
@@ -258,11 +259,7 @@ public class Grounder : MonoBehaviour
 			{
 				pc.energy = 100;
             }
-			if (Mathf.Abs(pc.flipRotaion) / 270 >= 1)
-			{
-				pc.rating.text = "FLIP!! * " + Mathf.Floor(Mathf.Abs(pc.flipRotaion) / 270);
-
-			}
+			
 
 		}
 
