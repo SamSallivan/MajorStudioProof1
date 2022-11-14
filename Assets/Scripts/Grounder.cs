@@ -223,28 +223,28 @@ public class Grounder : MonoBehaviour
             //Debug.Log(angle);
             if (angle <= 15)
 			{
-				pc.rating.text = "Perfect";
+				pc.rating.text = "PERFECT";
 				pc.energy += (60 - Mathf.Abs(angle)) / 1;
 
 			}
 			else if (angle <= 30)
 			{
-				pc.rating.text = "Great";
+				pc.rating.text = "GREAT";
                 pc.energy += (60 - Mathf.Abs(angle)) / 1.25f;
 			}
 			else if (angle <= 45)
 			{
-				pc.rating.text = "Good";
+				pc.rating.text = "GOOD";
                 pc.energy += (60 - Mathf.Abs(angle)) / 1.25f;
 			}
             else if (angle <= 60)
             {
-                pc.rating.text = "Okay";
+                pc.rating.text = "OKAY";
                 pc.energy += (60 - Mathf.Abs(angle)) / 1.25f;
 			}
             else
             {
-                pc.rating.text = "Bad";
+                pc.rating.text = "BAD";
             }
 
             pc.audioSettings.Hitvalue = (60 - angle)/60;
@@ -258,8 +258,13 @@ public class Grounder : MonoBehaviour
 			{
 				pc.energy = 100;
             }
+			if (Mathf.Abs(pc.flipRotaion) / 270 >= 1)
+			{
+				pc.rating.text = "FLIP!! * " + Mathf.Floor(Mathf.Abs(pc.flipRotaion) / 270);
 
-        }
+			}
+
+		}
 
     }
 
